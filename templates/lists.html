@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block toolbar %}
+{% if session.current_user %}
+
+<p class='toolbar'>
+<a href={{ url_for('add_view') }}>Write</a> | 
+<a href={{ url_for('logout_view') }}>Sign Out</a></p>
+
+{% else %}
+
+<p class='toolbar'>
+<a href={{ url_for('login_view') }}>Sign In</a> | 
+<a href={{ url_for('registration_view') }}>Join</a></p>
+
+{% endif %}
+{% endblock %}
+
+{% block body %}
+
+{% for post in posts %}
+<h2 class='title'><a href={{ url_for('details_view', id=post.id) }}>{{post.title}}</a></h2>
+<p>Published by <b>{{post.author.username}}</b> on <b>{{post.pub_date.strftime('%d %B %Y')}}</b></p>
+<p>{{post.body|safe}}</p><br>
+{% else %}
+<p><em>To refine, to clarify, to intensify that eternal moment in which we alone live there is but a single force&#151the imagination.</em><p> 
+<p>Go write a blog post.</p>
+{% endfor %}
+
+{% endblock %}

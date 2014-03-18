@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block toolbar %}
+
+<p class='toolbar'><a href={{ url_for('registration_view') }}>Join</a></p>
+
+{% endblock %}
+
+{% block body %}
+
+<h2>Login</h2>
+<form action='/login' method=post>
+<dl>
+<input type='hidden' name='_csrf_token' value='{{ csrf_token() }}'>
+<dt>Username:
+<dd><input type=text size=40 name=username>
+<dt>Password:
+<dd><input type=password size=40 name=password>
+<dd><input type=submit value=Login>
+</dl>
+</form>
+
+{% endblock %}

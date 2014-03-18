@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block toolbar %}
+
+<p class='toolbar'><a href={{ url_for('login_view') }}>Sign In</a></p>
+
+{% endblock %}
+
+{% block body %}
+
+<h2>Register for Blogette</h2>
+<form action='/register' method=post class=register>
+<dl>
+<input type='hidden' name='_csrf_token' value='{{ csrf_token() }}'>
+<dt>Email:
+<dd><input type=text size=40 name=email>
+<dt>Username:
+<dd><input type=text size=40 name=username>
+<dt>Password:
+<dd><input type=password size=40 name=password>
+<dd><input type=submit value=Register>
+</dl>
+</form>
+
+{% endblock %}

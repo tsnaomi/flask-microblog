@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block toolbar %}
+
+<p class='toolbar'>
+<a href={{ url_for('details_view', id=post.id) }}>Abort</a> | 
+<a href={{ url_for('delete_view', id=post.id) }} onclick='return confirm('Are you positive you want to delete this post?');'>Delete</a> | 
+<a href={{ url_for('add_view') }}>Write</a> | 
+<a href={{ url_for('logout_view') }}>Sign Out</a></p>
+
+{% endblock %}
+
+{% block body %}
+
+<head><!-- CDN hosted by Cachefly -->
+<script src='//tinymce.cachefly.net/4.0/tinymce.min.js'></script>
+<script>tinymce.init({selector:'textarea'});</script>
+</head>
+<form action={{action}} method=post class=edit-post>
+<dl>
+<input type='hidden' name='_csrf_token' value='{{ csrf_token() }}'>
+<dt>Title:
+<dd><input type=text size=80 name=title value='{{post.title}}'>
+<dt>Body:
+<dd><textarea name=body rows=10 cols=80>{{post.body}}</textarea>
+<dd><input type=submit value=Post>
+</dl>
+</form>
+
+{% endblock %}

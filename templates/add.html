@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block toolbar %}
+
+<p class='toolbar'><a href={{ url_for('logout_view') }}>Sign Out</a></p>
+
+{% endblock %}
+
+{% block body %}
+
+<head><!-- CDN hosted by Cachefly -->
+<script src='//tinymce.cachefly.net/4.0/tinymce.min.js'></script>
+<script>tinymce.init({selector:'textarea'});</script>
+</head>
+<form action='/add' method=post class=add-post>
+<dl>
+<input type='hidden' name='_csrf_token' value='{{ csrf_token() }}'>
+<dt>Title:
+<dd><input type=text size=80 name=title>
+<dt>Body:
+<dd><textarea name=body rows=10 cols=80></textarea>
+<dd><input type=submit value=Post>
+</dl>
+</form>
+
+{% endblock %}
