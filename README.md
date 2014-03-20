@@ -1,7 +1,7 @@
 flask_microblog
 ===============
 
-*Blogette* is a simple microblog written within the Flask framework. *Blogette* allows registered users to create, edit, and delete blog posts. 
+*Blogette* is a simple Flask microblog that allows registered users to create, edit, and delete blog posts. 
 
 Collaborator: [Justin L. (risingmoon)](https://github.com/risingmoon)
 
