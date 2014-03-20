@@ -1,7 +1,7 @@
 flask_microblog
 ===============
 
-A simple microblog written within the Flask framework. To date, the microblog enables users to create a post with write_post(), to query all posts with read_posts(), and to read a specific post with read_post().
+Blogette is a simple microblog written within the Flask framework. Blogette allows registered users to create, edit, and delete blog posts. 
 
 Collaborator: [Justin L. (risingmoon)](https://github.com/risingmoon)
 
