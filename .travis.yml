@@ -1,0 +1,11 @@
+language: python
+python:
+  - "2.7"
+env: DB=postgres
+# command to install dependencies
+install: "pip install -r requirements.txt"
+# command before running tests
+before_script: psql -c 'create database microblog;' -U postgres
+# command to run tests
+script: 
+    - python tests.py
