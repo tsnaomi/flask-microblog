@@ -1,0 +1,8 @@
+python-all-dev
+python-pip
+nginx
+supervisor
+postgresql
+postgresql-contrib
+python-psycopg2
+libpq-dev
