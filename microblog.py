@@ -18,7 +18,7 @@ app.config.update(
     MAIL_PORT=465,
     MAIL_USE_SSL=True,
     MAIL_USERNAME='linguisticpythonista@gmail.com',
-    MAIL_PASSWORD='',  # FILL OUT
+    MAIL_PASSWORD='bzjmhzuylhqfdxmi',  # FILL OUT
     MAIL_DEFAULT_SENDER=('Blogette', 'linguisticpythonista@gmail.com'))
 
 db = SQLAlchemy(app)
@@ -239,11 +239,12 @@ def registration_view():
             author = register(request.form['email'], request.form['username'],
                               request.form['password'])
             body = '''Please proceed here to confirm Blogette account:\r\n
-                      http://ec2-54-186-11-38.us-west-2.compute.amazonaws.com/confirmation/%s''' % author.key
+http://ec2-54-186-11-38.us-west-2.compute.amazonaws.com/confirmation/%s''' \
+                   % author.key
             msg = Message(subject='Blogette Registration Confirmation',
                           body=body, recipients=[request.form['email']])
             mail.send(msg)
-            flash('Check email for cofirmation link.')
+            flash('Check email for confirmation link.')
             return redirect(url_for('login_view'))
         except ValueError:
             flash('Email or username already taken.')
